@@ -68,7 +68,7 @@ class Keccak:
         # print 'after iota step',w
     @staticmethod
     def delta(w):
-        for _ in xrange(50):
+        for _ in range(50):
             Keccak.Round(w)
 
     def absorbing(self):
@@ -79,12 +79,12 @@ class Keccak:
             data.append(0)
         # print data
         mid = []
-        for idx in xrange(0,len(data),4):
-            mid.append([data[idx+i] for i in xrange(4)])
+        for idx in range(0,len(data),4):
+            mid.append([data[idx+i] for i in range(4)])
         #print 'mid: ',mid
         #print 'r,c: ',r,c
 
-        for j in xrange(len(mid)):
+        for j in range(len(mid)):
             r = [(a^b)%256 for a,b in zip(r,mid[j])]
             w = [r,c]
             #print 'r before delta',r
@@ -105,7 +105,7 @@ class Keccak:
         r = self.r
         c = self.c
 
-        for i in xrange(2):
+        for i in range(2):
             w = [r,c]
             Keccak.delta(w)
             r = w[0]

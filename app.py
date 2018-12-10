@@ -33,11 +33,15 @@ with open('flag') as f:
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = CheckHashForm()
-    if request.method == 'POST':
-        hash_1 = request.form.get('Hash_1')
-        hash_2 = request.form.get('Hash_2')
-        hash_1 = Keccak(hash_1).hex()
-        hash_2 = Keccak(hash_2).hex()
+    if form.validate_on_submit():
+
+        hash_1 = form.hash_1.data
+        print(hash_1)
+        hash_2 = form.hash_2.data
+        hash_1 = Keccak(hash_1)
+        hash_1 = hash_1.hex()
+        hash_2 = Keccak(hash_2)
+        hash_2 = hash_2.hex()
         if hash_1 == hash_2:
             print(flag)
 

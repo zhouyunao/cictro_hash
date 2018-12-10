@@ -20,34 +20,30 @@
         <form method="post">
             {{ form.csrf_token }}
             <div class="form-group">
-                {{ form.username.label }}
-                {% if form.username.errors %}
-                    {{ form.username(class='form-control is-invalid') }}
-                    {% for error in form.username.errors %}
+                {{ form.hash_1.label }}
+                {% if form.hash_1.errors %}
+                    {{ form.hash_1(class='form-control is-invalid') }}
+                    {% for error in form.hash_1.errors %}
                         <div class="invalid-feedback">
                             {{ error }}
                         </div>
                     {% endfor %}
                 {% else %}
-                    {{ form.username(class='form-control') }}
+                    {{ form.hash_1(class='form-control') }}
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.password.label }}
-                {% if form.password.errors %}
-                    {{ form.password(class='form-control is-invalid') }}
-                    {% for error in form.password.errors %}
+                {{ form.hash_2.label }}
+                {% if form.hash_2.errors %}
+                    {{ form.hash_2(class='form-control is-invalid') }}
+                    {% for error in form.hash_2.errors %}
                         <div class="invalid-feedback">
                             {{ error }}
                         </div>
                     {% endfor %}
                 {% else %}
-                    {{ form.password(class='form-control') }}
+                    {{ form.hash_2(class='form-control') }}
                 {% endif %}
-            </div>
-            <div class="form-check">
-                {{ form.remember(class='form-check-input') }}
-                {{ form.remember.label }}
             </div>
             {{ form.submit(class='btn btn-primary') }}
         </form>
