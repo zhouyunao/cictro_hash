@@ -23,8 +23,6 @@ with open('flag') as f:
     flag = f.read()
 
 # Custom config
-app.config['UPLOAD_PATH'] = os.path.join(app.root_path, 'uploads')
-app.config['ALLOWED_EXTENSIONS'] = ['png', 'jpg', 'jpeg', 'gif']
 
 # Flask config
 # set request body's max length
@@ -42,7 +40,7 @@ def index():
         hash_2 = Keccak(hash_2).hex()
         if hash_1 == hash_2:
             print(flag)
-        
+
     return render_template('bootstrap.html',form=form)
 
 
