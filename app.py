@@ -44,7 +44,11 @@ def index():
         hash_2 = hash_2.hex()
         if hash_1 == hash_2:
             print(flag)
-
-    return render_template('bootstrap.html',form=form)
+            redirect(url_for('index'))
+            flash('flag: '+flag)
+        else:
+            redirect(url_for('index'))
+            flash('not the collision one.')
+    return render_template('original.html',form=form)
 
 
