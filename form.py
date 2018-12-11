@@ -8,8 +8,8 @@ from wtforms.validators import DataRequired, Length, ValidationError, Email
 
 # 4.3.1 basic form example
 class CheckHashForm(FlaskForm):
-    hash_1 = StringField('Hash_1', validators=[DataRequired()])
-    hash_2 = StringField('Hash_2', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    hash_1 = StringField('String_1', validators=[DataRequired()])
+    hash_2 = StringField('String_2', validators=[DataRequired()])
+    submit = SubmitField('Collide')
 
 

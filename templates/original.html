@@ -6,14 +6,23 @@
 {% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-{% endblock %}
-
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+{% endblock styles %}
 
 {% block content %}
     <div class="container">
         <br>
-        <h1 class="display-4">Cictro-Hash challenge</h1>
+        <h1>Cictro-Hash challenge</h1>
+	<h5>ritsecctf2018</h5>
+	<div class="challenge-description">
+	  <p>This document will describe the Hash Function CictroHash. It follows modern hashing techniques in a truly elegant and hardware-capable design. The sponge construction is a popular method used by hash functions to transfer through entropy to variable input. It is used in the ever-popular Keccak Hash function and is demonstrated below.Try to find the collision!</p> 
+	  <hr>
+	  <h1>Download:</h1>
+	  <p>
+	    <a href="{{url_for('static',filename='CictroHash.pdf')}}">CictroHash algorithm</a>
+	  </p>
+	</div>
         <hr>
         <form method="post">
             {{ form.csrf_token }}
